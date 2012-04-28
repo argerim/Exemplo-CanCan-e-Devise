@@ -1,0 +1,17 @@
+<h1>/Permission</h1>
+
+<p>
+  <b>Action</b><br>
+  <%= @permission.action %>
+</p>
+
+<p>
+  <b>Subject class</b><br>
+  <%= @permission.subject_class %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', permissions_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_permission_path(@permission), :class => 'btn' %>
+  <%= link_to 'Delete', permission_path(@permission), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

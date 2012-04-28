@@ -1,0 +1,25 @@
+<%= form_for @permission, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Permission</legend>
+
+    <div class="control-group">
+      <%= f.label :action, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :action, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :subject_class, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :subject_class, (get_model_names_sub.each do |models_names|
+    [models_names] end), options = { :prompt => "--- Select ---" }%>  
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', permissions_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

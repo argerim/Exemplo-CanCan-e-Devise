@@ -1,0 +1,15 @@
+<h1>/User</h1>
+
+<p>
+  <b>Email</b><br>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Role</b><br>
+  <%= @user.role.name %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', users_path, :class => 'btn'  %>
+</div>

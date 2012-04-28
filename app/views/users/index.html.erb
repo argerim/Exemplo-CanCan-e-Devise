@@ -1,0 +1,19 @@
+<h1>Users</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to user.email, user_path(user) %></td>
+        <td><%= user.role.name %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

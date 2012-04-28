@@ -1,0 +1,18 @@
+<h1>/Role</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @role.name %>
+</p>
+
+<b>Permissions:</b>
+	<p>
+  		<% @role.permissions.each do |permission| %>
+     		<%= permission.action %> <%= permission.subject_class %> |
+  		<%end%>
+  	</p>
+<div class="form-actions">
+  <%= link_to 'Back', roles_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_role_path(@role), :class => 'btn' %>
+  <%= link_to 'Delete', role_path(@role), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

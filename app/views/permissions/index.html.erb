@@ -1,0 +1,26 @@
+<h1>Permissions</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Action</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @permissions.each do |permission| %>
+      <tr>
+        <td><%= permission.id %></td>
+        <td><%= link_to permission.action, permission_path(permission) %></td>
+        <td><%= permission.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_permission_path(permission), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', permission_path(permission), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_permission_path, :class => 'btn btn-primary' %>

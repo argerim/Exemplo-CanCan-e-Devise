@@ -1,0 +1,30 @@
+<%= form_for @role, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Role</legend>
+
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+
+  <% get_model_names_sub.each do |models_names| %>    
+    <div class="control-group">
+      <%= field_set_tag models_names do %>
+        <% Permission.where(:subject_class => models_names).each do |permission| %>
+          <label class="checkbox">
+            <%= check_box_tag 'role[permission_ids][]', permission.id, @role.permissions.include?(permission) %>
+            <%= permission.action %>      
+          </label>
+        <%end%>
+      <%end%>      
+    </div>
+  <%end%>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', roles_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
