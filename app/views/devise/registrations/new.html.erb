@@ -23,6 +23,13 @@
       </div>
     </div>
     
+    <div class="control-group">
+      <%= f.label :role_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :role_id, roles, :id, :name, :include_blank => "--- Select ---" %>
+      </div>
+    </div>
+
     <div class="form-actions">
       <%= f.submit "Sign in", :class => 'btn btn-primary' %>
     </div>
